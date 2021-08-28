@@ -32,6 +32,11 @@ module.exports = {
                 test: /\.jsx$/,
                 exclude: /node_modules/,
                 use: 'babel-loader'
+            },
+            { // Definimos que para arquivos CSS vamos usar o style-loader e o css-loader para converter
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
             }
         ]
     }
