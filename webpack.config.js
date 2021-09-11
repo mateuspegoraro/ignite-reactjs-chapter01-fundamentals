@@ -9,14 +9,14 @@ module.exports = {
     mode: isDevelopment ? 'development' : 'production',
     devtool: isDevelopment ? 'eval-source-map' : 'source-map',
 	// 1 - Aqui definimos o arquivo principal da aplicação e para onde ele vai ser convertido
-    entry: path.resolve(__dirname, 'src', 'index.jsx'),
+    entry: path.resolve(__dirname, 'src', 'index.tsx'),
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
     },
 	// 2 - Aqui definimos quais tipos de arquivos vão ser trabalhados
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
     },
     devServer: {
         static: path.resolve(__dirname, 'public'),
@@ -32,7 +32,7 @@ module.exports = {
     module: {
         rules: [
             { // Definimos que para arquivos JSX vamos usar o babel para converter
-                test: /\.jsx$/,
+                test: /\.(j|t)sx$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
